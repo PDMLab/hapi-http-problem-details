@@ -33,7 +33,3 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "yarn.lock" }}
-
-      # run tests!
-      - run: yarn test
-
