@@ -54,13 +54,14 @@ class NotFoundErrorMapper implements IErrorMapper {
 }
 ```
 
-Finally, create an instance of `HapiMappingStrategy` and register everything in your `app`.
+Finally, create an instance of `DefaultMappingStrategy` and register everything in your `app`.
 
 ```typescript
 import * as Hapi from "@hapi/hapi";
-import { HttpProblemDetailsPlugin, HapiMappingStrategy } from 'hapi-http-problem-details'
+import { DefaultMappingStrategy } from 'hapi-http-problem-details-mapper'
+import { HttpProblemDetailsPlugin } from 'hapi-http-problem-details'
 
-const strategy = new HapiMappingStrategy(
+const strategy = new DefaultMappingStrategy(
     new MapperRegistry()
         .registerMapper(new NotFoundErrorMapper()));
 
@@ -167,14 +168,14 @@ class NotFoundErrorMapper extends ErrorMapper {
 }
 ```
 
-Finally, create an instance of `HapiMappingStrategy` and register everything in your `app`.
+Finally, create an instance of `DefaultMappingStrategy` and register everything in your `app`.
 
 ```js
 const Hapi = require('@hapi/hapi');
 const MapperRegistry = require('http-problem-details-mapper').MapperRegistry;
+const DefaultMappingStrategy = require('http-problem-details-mapper').DefaultMappingStrategy;
 const plugin = require('hapi-http-problem-details').HttpProblemDetailsPlugin;
-const HapiMappingStrategy  = require('hapi-http-problem-details').HapiMappingStrategy;
-const strategy = new HapiMappingStrategy(new MapperRegistry());
+const strategy = new DefaultMappingStrategy(new MapperRegistry());
 
 const init = async () => {
 
